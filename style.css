@@ -1,0 +1,12 @@
+@charset 'utf-8';
+
+* {
+  margin: 0;
+}
+
+canvas {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  background: #000;
+}
