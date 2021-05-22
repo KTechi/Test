@@ -27,6 +27,8 @@ const vertices = [
                   new Vertex(-10,   0,   0),
                   new Vertex(  0, -10,   0),
                   new Vertex(  0,   0, -10),
+  
+                  new Vertex(  0,   0,   0),
                  ]
 const edges = [
                new Edge(vertices[0], vertices[1]),
@@ -44,6 +46,12 @@ const edges = [
                new Edge(vertices[3], vertices[5]),
                new Edge(vertices[4], vertices[5]),
               ]
+const axis = [
+              new Edge(vertices[6], vertices[0]),
+              new Edge(vertices[6], vertices[1]),
+              new Edge(vertices[6], vertices[2]),
+             ]
+
 let yaw = 0
 let pitch = 0
 
@@ -74,6 +82,13 @@ function repaint() {
   context.strokeStyle = 'rgb(255, 255, 255, 1)'
   for (let i = 0; i < edges.length; i++)
     paintEdge(edges[i])
+  
+  context.strokeStyle = 'rgb(255, 0, 0, 1)'
+  paintEdge(axis[0])
+  context.strokeStyle = 'rgb(0, 255, 0, 1)'
+  paintEdge(axis[1])
+  context.strokeStyle = 'rgb(0, 0, 255, 1)'
+  paintEdge(axis[2])
 }
 function paintVertex(vertex) {
   let p1 = 20 * vertex.x
